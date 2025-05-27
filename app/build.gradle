@@ -30,6 +30,12 @@ android {
 
 dependencies {
 
+    // Work Manager
+    def work_version = "2.10.1"
+
+    // (Java only)
+    implementation "androidx.work:work-runtime:$work_version"
+
     implementation libs.appcompat
     implementation libs.material
     implementation libs.activity
