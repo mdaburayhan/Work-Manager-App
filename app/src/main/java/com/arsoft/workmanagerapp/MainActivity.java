@@ -21,24 +21,26 @@ import androidx.work.WorkRequest;
 /**
  * MainActivity of the WorkManagerApp.
  *
- * This activity demonstrates the basic usage of WorkManager in Android
- * with constraints. It creates a one-time background task (WorkRequest)
- * that only runs when the device is charging.
+ * This activity demonstrates how to use WorkManager in Android
+ * with execution constraints, input/output data, and live status observation.
  *
  * Features:
- * - Defines execution constraints using WorkManager's Constraints API.
- * - Uses a Button to trigger the background task.
- * - Enqueues a OneTimeWorkRequest to perform work defined in MyWorker.class.
+ * - Sets constraints to execute work only when the device is charging.
+ * - Passes input data (e.g., "max_limit") to the worker.
+ * - Observes the state of the WorkRequest using LiveData and displays
+ *   real-time status updates via Toast.
+ * - Retrieves output data from the worker after it finishes execution.
  *
  * Usage:
- * - Press the button to enqueue the work.
- * - The task will run only if the defined constraints are met (e.g., charging).
+ * - Tap the button to enqueue a one-time background task.
+ * - The task will run only when the device meets the defined constraints.
+ * - Progress and result will be shown via Toast messages.
  *
  * Dependencies:
  * - androidx.work:work-runtime
  *
  * Author: Rayhan
- * Date: [Insert Date]
+ * Date: May 28, 2025
  */
 
 public class MainActivity extends AppCompatActivity {
