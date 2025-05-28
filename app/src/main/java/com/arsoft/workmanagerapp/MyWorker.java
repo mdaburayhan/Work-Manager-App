@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.work.Data;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
@@ -18,11 +19,20 @@ public class MyWorker extends Worker {
     @NonNull
     @Override
     public Result doWork() {
+
+        // Getting Data from InputData
+        Data data = getInputData();
+        int countingLimit = data.getInt("max_limit",0);
+
         // count to 1000
-        for (int i = 1; i<=1000; i++){
+        for (int i = 0; i< countingLimit; i++){
             Log.i("TAGY", "Count is: "+i);
         }
 
-        return Result.success();
+        // Sending Data and Done Notification
+        Data dataToSend = new Data.Builder()
+                .putString("msg", "Task Done Successfully").build();
+
+        return Result.success(dataToSend);
     }
 }
